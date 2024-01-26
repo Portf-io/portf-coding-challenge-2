@@ -35,7 +35,7 @@ async function main() {
     const task = await prisma.task.create({
       data: t,
     });
-    console.log(`Created user with id: ${task.id}`);
+    console.log(`Created task with id: ${task.id}`);
   }
   console.log(`Seeding finished.`);
 }
