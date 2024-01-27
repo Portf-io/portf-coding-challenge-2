@@ -11,7 +11,7 @@
     "start": "next start",
     "generate": "npm -s run generate:prisma && npm -s run generate:nexus",
     "generate:prisma": "prisma generate",
-    "generate:nexus": "ts-node --compiler-options '{\"module\":\"CommonJS\"}' --transpile-only src/graphql/schema",
+    "generate:nexus": "ts-node --compiler-options '{\"module\":\"CommonJS\"}' --transpile-only src/graphql-server/schema",
     "codegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
@@ -31,15 +31,18 @@
   },
   "devDependencies": {
     "@graphql-codegen/cli": "5.0.0",
+    "@graphql-codegen/client-preset": "4.1.0",
     "@parcel/watcher": "^2.4.0",
     "@types/node": "20.2.3",
     "@types/react": "18.2.8",
+    "autoprefixer": "^10.4.17",
     "esbuild": "0.17.19",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.12",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.1.6",
-    "@graphql-codegen/client-preset": "4.1.0"
+    "typescript": "^5.1.6"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} --transpile-only prisma/seed.ts"

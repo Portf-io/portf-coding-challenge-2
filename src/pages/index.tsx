@@ -11,7 +11,9 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Welcome to the Task Manager</h1>
+        <h1 className="className=text-3xl font-bold underline">
+          Welcome to the Task Manager
+        </h1>
 
         <p className={styles.description}>Please read the README.md</p>
 
