@@ -1,5 +1,6 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import "../styles/globals.css";
+import Layout from "../components/Layout";
 
 const client = new ApolloClient({
   uri: "http://localhost:3000/api/graphql",
@@ -9,7 +10,9 @@ const client = new ApolloClient({
 function TaskManagerApp({ Component, pageProps }) {
   return (
     <ApolloProvider client={client}>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </ApolloProvider>
   );
 }
