@@ -14,6 +14,7 @@ const GET_ALL_TASKS = graphql(`
       title
       description
       status
+      createdAt
     }
   }
 `);
@@ -25,7 +26,7 @@ export default function Home() {
   const taskInfo = useMemo(() => {
     const totalTasks = tasks.length;
     const completedTasks = tasks.filter(
-      (task) => task.status === "completed"
+      (task) => task.status === "COMPLETED"
     ).length;
     const uncompletedTasks = totalTasks - completedTasks;
 
@@ -35,18 +36,17 @@ export default function Home() {
   useEffect(() => {
     if (allTasks?.getAllTasks) {
       setTasks(allTasks.getAllTasks);
-      console.log(tasks);
-      console.log(allTasks.getAllTasks);
     }
   }, [allTasks]);
 
   return (
-    <div className="flex flex-col space-y-24">
+    <div className="flex flex-col space-y-8">
       <HomeHeader
         numTasks={taskInfo.totalTasks}
         completedTasks={taskInfo.completedTasks}
         uncompletedTasks={taskInfo.uncompletedTasks}
       />
+      <div className="text-3xl">Tasks</div>
       <HomeBody allTasks={tasks} />
     </div>
   );

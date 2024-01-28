@@ -3,7 +3,7 @@ import HomeHeaderItem from "./HomeHeaderItem";
 import { MdNumbers } from "react-icons/md";
 import { FaCheckCircle } from "react-icons/fa";
 import { TbProgress } from "react-icons/tb";
-import { HomeHeaderProps } from "../../models/HomeHeaderProps";
+import { HomeHeaderProps } from "../../models/HomeProps";
 
 export default function HomeHeader({
   numTasks,
