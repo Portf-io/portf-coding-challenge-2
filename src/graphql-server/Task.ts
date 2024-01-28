@@ -1,4 +1,11 @@
-import { objectType, extendType, nonNull, intArg, stringArg } from "nexus";
+import {
+  objectType,
+  extendType,
+  enumType,
+  nonNull,
+  intArg,
+  stringArg,
+} from "nexus";
 import { Task } from "nexus-prisma";
 import { Context } from "./context";
 
@@ -10,9 +17,17 @@ export const TaskType = objectType({
     t.nonNull.field(Task.id);
     t.nonNull.field(Task.title);
     t.field(Task.description);
-    t.nonNull.field(Task.status);
+    t.nonNull.field("status", {
+      type: TaskStatusEnum,
+    });
     t.nonNull.field(Task.createdAt);
   },
+});
+
+// Status enum
+export const TaskStatusEnum = enumType({
+  name: "TaskStatusEnum",
+  members: ["COMPLETED", "IN_PROGRESS", "PENDING"],
 });
 
 // Get a single task

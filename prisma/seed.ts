@@ -6,25 +6,25 @@ const taskData: Prisma.TaskCreateInput[] = [
   {
     title: "Create",
     description: "Create a new task",
-    status: "TO_DO",
+    status: "PENDING",
     createdAt: new Date(),
   },
   {
     title: "List",
     description: "Display tasks in a list",
-    status: "TO_DO",
+    status: "PENDING",
     createdAt: new Date(),
   },
   {
     title: "Delete",
     description: "Delete a task",
-    status: "TO_DO",
+    status: "PENDING",
     createdAt: new Date(),
   },
   {
     title: "Support sub-tasks",
     description: "Add support for array of sub-tasks on a task",
-    status: "TO_DO",
+    status: "PENDING",
     createdAt: new Date(),
   },
 ];
