@@ -4,7 +4,7 @@ import { MdNumbers } from "react-icons/md";
 import { FaCheckCircle } from "react-icons/fa";
 import { TbProgress } from "react-icons/tb";
 
-export default function HomeHeader() {
+export default function HomeHeader({ allTasks }) {
   return (
     <header className="flex justify-around">
       <HomeHeaderItem
@@ -19,7 +19,7 @@ export default function HomeHeader() {
       />
       <HomeHeaderItem
         icon={TbProgress}
-        name="Tasks In Process"
+        name="Tasks In Progress"
         calc_function=""
       />
       <HomeHeaderItem
