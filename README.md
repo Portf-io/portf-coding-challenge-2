@@ -14,7 +14,59 @@ A simple Task Management Application that allows users to create, update, delete
 
 3. There may be some bugs and you are also free to change any configuration if you want to.
 
+```typescript
+/*
+ GraphQL Schema Overview
+*/
 
+type Mutation {
+  createSubTask(description: String, status: SubTaskStatusEnum!, taskId: Int!, title: String!): SubTask!
+  createTask(description: String, status: TaskStatusEnum!, title: String!): Task!
+  deleteSubTask(id: Int!): SubTask
+  deleteTask(id: Int!): Task
+  updateSubTask(description: String, id: Int!, status: SubTaskStatusEnum, title: String): SubTask
+  updateTask(description: String, id: Int!, status: TaskStatusEnum, title: String): Task
+}
+
+type Query {
+  getAllSubTasks: [SubTask]
+  getAllTasks: [Task]
+  getSubTask(id: Int!): SubTask
+  getSubTasksForTask(taskId: Int!): [SubTask]
+  getTask(id: Int!): Task
+}
+
+type SubTask {
+  createdAt: DateTime!
+  description: String
+  id: Int!
+  status: SubTaskStatusEnum!
+  task: Task!
+  taskId: Int!
+  title: String!
+}
+
+enum SubTaskStatusEnum {
+  COMPLETED
+  IN_PROGRESS
+  PENDING
+}
+
+type Task {
+  createdAt: DateTime!
+  description: String
+  id: Int!
+  status: TaskStatusEnum!
+  title: String!
+}
+
+enum TaskStatusEnum {
+  COMPLETED
+  IN_PROGRESS
+  PENDING
+}
+
+```
 
 
 ## 🚀  Getting Started
