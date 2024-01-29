@@ -1,14 +1,19 @@
+import { useMutation } from "@apollo/client";
+
 import { AiOutlineDelete } from "react-icons/ai";
+import { colorTaskStatus } from "../../utils/colorTaskStatus";
+import TaskStatusDropdown from "../Task/TaskStatusDropdown";
+
 import {
   DELETE_SUBTASK_MUTATION,
   UPDATE_SUBTASK_STATUS,
 } from "../../pages/api/crud_subtask";
-import { colorTaskStatus } from "../../utils/colorTaskStatus";
-import TaskStatusDropdown from "../Task/TaskStatusDropdown";
-import { useMutation } from "@apollo/client";
-import { GET_SUBTASKS_FOR_TASK } from "../../pages/api/crud_task";
+import { SubTaskListItemProps } from "../../models/SubTaskModel";
 
-export default function SubTaskListItem({ subTask, allSubTasksRefetch }) {
+export default function SubTaskListItem({
+  subTask,
+  allSubTasksRefetch,
+}: SubTaskListItemProps) {
   const [deleteTask] = useMutation(DELETE_SUBTASK_MUTATION);
   const [updateTaskStatus] = useMutation(UPDATE_SUBTASK_STATUS);
 

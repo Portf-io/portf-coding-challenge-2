@@ -1,25 +1,15 @@
 import Link from "next/link";
 import { GrLinkPrevious } from "react-icons/gr";
 import { colorTaskStatusHeader } from "../../utils/colorTaskStatus";
+import { formatDate } from "../../utils/formatDate";
+import { TaskDetailHeaderProps } from "../../models/TaskDetailProps";
 
 export default function TaskDetailHeader({
   taskTitle,
   taskStatus,
   createdAtDate,
   taskDescription,
-}) {
-  // Convert createdAtDate to Date object
-  const createdAt = new Date(createdAtDate);
-
-  // Format date and time
-  const formattedDate = createdAt.toLocaleString("en-US", {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: true,
-    month: "long",
-    day: "2-digit",
-    year: "numeric",
-  });
+}: TaskDetailHeaderProps) {
   return (
     <div className="relative flex flex-col space-y-10 p-6 w-full bg-slate-500 rounded-lg">
       <div className="flex flex-col space-y-2 text-white">
@@ -37,7 +27,7 @@ export default function TaskDetailHeader({
           <div className={`font-semibold ${colorTaskStatusHeader(taskStatus)}`}>
             {taskStatus}
           </div>
-          <div>Created on {formattedDate}</div>
+          <div>Created on {formatDate(createdAtDate)}</div>
         </div>
       </div>
       <div className="text-white">{taskDescription}</div>

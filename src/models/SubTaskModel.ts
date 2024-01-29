@@ -11,3 +11,8 @@ export interface SubTaskListProps {
   subTasks: SubTask[];
   allSubTasksRefetch;
 }
+
+export interface SubTaskListItemProps {
+  subTask: SubTask;
+  allSubTasksRefetch;
+}

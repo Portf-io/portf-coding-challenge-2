@@ -1,12 +1,12 @@
+import Head from "next/head";
 import { useState, useEffect, useMemo } from "react";
 import { useQuery } from "@apollo/client";
 
 import HomeHeader from "../components/Home/HomeHeader";
 import HomeBody from "../components/Home/HomeBody";
 
-import { Task } from "../models/TaskModel";
 import { GET_ALL_TASKS } from "./api/crud_task";
-import Head from "next/head";
+import { Task } from "../models/TaskModel";
 
 export default function Home() {
   const { data: allTasks } = useQuery(GET_ALL_TASKS);
