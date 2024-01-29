@@ -1,4 +1,12 @@
-## Getting Started
+# PortF Task Manager
+## by Ton Hoang Nguyen (Bill)
+
+## 📄 What is PortF Task Manager
+
+A simple Task Management Application that allows users to create, update delete, and view tasks.
+
+
+## 🚀  Getting Started
 
 Welcome to the Task Manager coding challenge, in this challenge you will be tasked with building a simple Task Management Application that allows users to create, update delete, and view tasks.
 
@@ -43,7 +51,7 @@ npm run codegen
 
 Run the NextJS dev server
 
-```
+```bash
 npm run dev
 ```
 
