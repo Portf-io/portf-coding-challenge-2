@@ -1,4 +1,4 @@
-import { Task } from "./TaskModel";
+import { Task } from "../TaskModel";
 
 export interface HomeBodyProps {
   allTasks: Task[];
@@ -15,7 +15,7 @@ export interface HomeTaskListProps {
   filteredTasks: Task[];
 }
 
-export interface HomeSearchProps {
+export interface TaskQueriesProps {
   onSearchTasks: (query: string) => void;
   onOrderByDate: () => void;
   onFilterByStatus: (status: string) => void;

@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { GrLinkPrevious } from "react-icons/gr";
-import { colorTaskStatusHeader } from "../../utils/colorTaskStatus";
-import { formatDate } from "../../utils/formatDate";
-import { TaskDetailHeaderProps } from "../../models/TaskDetailProps";
+import { colorTaskStatusHeader } from "../../../utils/colorTaskStatus";
+import { formatDate } from "../../../utils/formatDate";
+import { TaskDetailHeaderProps } from "../../../models/props/TaskDetailProps";
 
 export default function TaskDetailHeader({
   taskTitle,
@@ -22,7 +22,7 @@ export default function TaskDetailHeader({
         </Link>
 
         <div></div>
-        <div className="text-7xl">{taskTitle}</div>
+        <div className="text-4xl">{taskTitle}</div>
         <div className="flex items-center space-x-6">
           <div className={`font-semibold ${colorTaskStatusHeader(taskStatus)}`}>
             {taskStatus}

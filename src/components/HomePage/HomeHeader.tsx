@@ -1,10 +1,10 @@
-import HomeHeaderItem from "./HomeHeaderItem";
+import HomeHeaderItem from "./HeaderTaskInfo";
 
 import { MdNumbers } from "react-icons/md";
 import { FaCheckCircle } from "react-icons/fa";
 import { TbProgress } from "react-icons/tb";
 import { MdOutlinePending } from "react-icons/md";
-import { HomeHeaderProps } from "../../models/HomeProps";
+import { HomeHeaderProps } from "../../models/props/HomeProps";
 
 export default function HomeHeader({
   numTasks,

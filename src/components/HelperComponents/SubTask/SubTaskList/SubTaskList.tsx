@@ -1,5 +1,5 @@
-import { SubTaskListProps } from "../../models/SubTaskModel";
-import SubTaskListItem from "./SubTaskListItem";
+import { SubTaskListProps } from "../../../../models/SubTaskModel";
+import SubTaskListItem from "./SubTaskItem";
 
 export default function SubTaskList({
   subTasks,

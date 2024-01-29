@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import Image from "next/image";
-import PortFLogo from "../../../public/logo.svg";
+import PortFLogo from "../../../../public/logo.svg";
 
 import SideNavItem from "./SideNavItem";
 import { AiOutlineHome } from "react-icons/ai";

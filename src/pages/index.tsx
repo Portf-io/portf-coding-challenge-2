@@ -2,8 +2,8 @@ import Head from "next/head";
 import { useState, useEffect, useMemo } from "react";
 import { useQuery } from "@apollo/client";
 
-import HomeHeader from "../components/Home/HomeHeader";
-import HomeBody from "../components/Home/HomeBody";
+import HomeHeader from "../components/HomePage/HomeHeader";
+import HomeBody from "../components/HomePage/HomeBody";
 
 import { GET_ALL_TASKS } from "./api/crud_task";
 import { Task } from "../models/TaskModel";

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { GET_SUBTASKS_FOR_TASK } from "../../pages/api/crud_task";
-import SubTaskList from "../SubTask/SubTaskList";
+import { GET_SUBTASKS_FOR_TASK } from "../../../pages/api/crud_task";
+import SubTaskList from "../../HelperComponents/SubTask/SubTaskList/SubTaskList";
 import { useQuery } from "@apollo/client";
-import { SubTask } from "../../models/SubTaskModel";
-import CreateSubTaskModal from "../SubTask/CreateSubTaskModal";
+import { SubTask } from "../../../models/SubTaskModel";
+import CreateSubTaskModal from "../../HelperComponents/SubTask/CreateSubTaskModal";
 
 export default function TaskDetailBody({ task }) {
   const [subTasks, setSubTasks] = useState<SubTask[]>([]);

@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 
-import { HomeBodyProps } from "../../models/HomeProps";
-import HomeSearch from "./HomeSearch";
-import HomeTaskList from "./HomeTaskList";
+import { HomeBodyProps } from "../../models/props/HomeProps";
+import HomeSearch from "./TaskQueries";
+import HomeTaskList from "./TaskList/TaskList";
 import { Task } from "../../models/TaskModel";
 
-import CreateTaskModal from "../Task/CreateTaskModal";
+import CreateTaskModal from "../TaskDetailPage/CreateTaskModal";
 
 export default function HomeBody({ allTasks }: HomeBodyProps) {
   const [filteredTasks, setFilteredTasks] = useState<Task[]>(allTasks);

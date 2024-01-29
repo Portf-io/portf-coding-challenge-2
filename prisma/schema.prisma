@@ -27,5 +27,5 @@ model SubTask {
     status      String @default("PENDING")
     createdAt   DateTime @default(now())
     taskId      Int
-    task        Task @relation(fields: [taskId], references: [id])
+    task        Task @relation(fields: [taskId], references: [id], onDelete: Cascade)
 }

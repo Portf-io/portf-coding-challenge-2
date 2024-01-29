@@ -1,12 +1,10 @@
-import Head from "next/head";
-import styles from "../../styles/Home.module.css";
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { GET_TASK } from "../api/crud_task";
-import TaskDetailHeader from "../../components/Task/TaskDetailHeader";
+import TaskDetailHeader from "../../components/TaskDetailPage/DetailPage/TaskDetailHeader";
 import { useState, useEffect } from "react";
 import { Task } from "../../models/TaskModel";
-import TaskDetailBody from "../../components/Task/TaskDetailBody";
+import TaskDetailBody from "../../components/TaskDetailPage/DetailPage/TaskDetailBody";
 
 export default function Task() {
   const { query } = useRouter();
