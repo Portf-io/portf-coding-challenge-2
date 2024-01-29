@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { CREATE_TASK_MUTATION, GET_ALL_TASKS } from "../../pages/api/crud_task";
+import { GET_SUBTASKS_FOR_TASK } from "../../pages/api/crud_task";
 import { FiX } from "react-icons/fi";
+import { CREATE_SUBTASK_MUTATION } from "../../pages/api/crud_subtask";
 
-export default function CreateTaskModal({ onClose }) {
+export default function CreateSubTaskModal({
+  onClose,
+  taskId,
+  allSubTasksRefetch,
+}) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState("PENDING");
-  const [createTask] = useMutation(CREATE_TASK_MUTATION, {
-    refetchQueries: [{ query: GET_ALL_TASKS }],
-  });
+  const [createTask] = useMutation(CREATE_SUBTASK_MUTATION);
   const formElementStyling =
     "block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createTask({ variables: { title, description, status } });
+    await createTask({ variables: { title, description, status, taskId } });
+    allSubTasksRefetch();
     onClose();
   };
 
@@ -30,7 +34,7 @@ export default function CreateTaskModal({ onClose }) {
             <FiX size={22} className="text-black" />
           </button>
         </div>
-        <div className="text-lg font-bold">Create a task</div>
+        <div className="text-lg font-bold">Create a subtask</div>
 
         <form className="flex flex-col space-y-6" onSubmit={handleSubmit}>
           <div>
@@ -88,7 +92,7 @@ export default function CreateTaskModal({ onClose }) {
               type="submit"
               className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
-              Create Task
+              Create Subtask
             </button>
           </div>
         </form>

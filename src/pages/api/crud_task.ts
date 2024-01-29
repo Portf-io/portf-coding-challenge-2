@@ -34,6 +34,18 @@ export const GET_TASK = gql(`
   }
 `);
 
+export const GET_SUBTASKS_FOR_TASK = gql(`
+  query GetSubTasksForTask($id: Int!) {
+    getSubTasksFotTask(taskId: $id) {
+      id
+      title
+      description
+      status
+      createdAt
+    }
+  }
+`);
+
 export const DELETE_TASK_MUTATION = gql(`
   mutation DeleteTask($id: Int!) {
     deleteTask(id: $id) {

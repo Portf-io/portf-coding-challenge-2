@@ -5,7 +5,7 @@ export default function HomeHeaderItem({ icon: Icon, name, value }) {
         <Icon />
         {name}
       </div>
-      <div className="absolute bottom-0 pl-2 pb-2">{value}</div>
+      <div className="absolute bottom-0 pl-2 pb-2 text-xl">{value}</div>
     </div>
   );
 }

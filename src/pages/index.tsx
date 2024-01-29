@@ -4,7 +4,7 @@ import { useQuery, gql } from "@apollo/client";
 import HomeHeader from "../components/Home/HomeHeader";
 import HomeBody from "../components/Home/HomeBody";
 
-import { Task } from "../models/Task";
+import { Task } from "../models/TaskModel";
 import { GET_ALL_TASKS } from "./api/crud_task";
 
 export default function Home() {

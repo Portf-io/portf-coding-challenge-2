@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { HomeBodyProps } from "../../models/HomeProps";
 import HomeSearch from "./HomeSearch";
 import HomeTaskList from "./HomeTaskList";
-import { Task } from "../../models/Task";
+import { Task } from "../../models/TaskModel";
 
 import CreateTaskModal from "../Task/CreateTaskModal";
 
