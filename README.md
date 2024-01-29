@@ -6,8 +6,7 @@ by Ton Hoang Nguyen (Bill)
 
 ## 📄 What is PortF Task Manager
 
-A simple Task Management Application that allows users to create, update, delete, and view tasks. This is created from the coding challenge by PortF. These
-are instructions:
+A simple Task Management Application that allows users to create, update, delete, and view tasks. This is created from the coding challenge by PortF with these instructions:
 
 1. Some guide tasks are provided in `prisma/seed.ts`
 
@@ -15,7 +14,12 @@ are instructions:
 
 3. There may be some bugs and you are also free to change any configuration if you want to.
 
-4. It is a NextJS app with the following integrations:
+
+
+
+## 🚀  Getting Started
+
+It is a NextJS app with the following integrations:
 
 - Prisma ORM with SQLite
 - Nexus (GraphQL schema generation)
@@ -23,9 +27,6 @@ are instructions:
 - Apollo Client
 - GraphQL Code Generator (for apollo client requests)
 - Node v20 is recommended.
-
-
-## 🚀  Getting Started
 
 ### NPM
 
