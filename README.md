@@ -1,6 +1,8 @@
 # PortF Task Manager
 by Ton Hoang Nguyen (Bill)
-![PortF Task Manager Home Page](https://github.com/HahaBill/portf-task-manager-bill/assets/32552798/1e241687-813c-4d59-a560-05425720b23a)
+
+<img width="1000" alt="PortF Task Manager Home Page" src="https://github.com/HahaBill/portf-task-manager-bill/assets/32552798/2e8fd584-2c4c-4379-b4c6-017a14f56e88">
+
 
 ## 📄 What is PortF Task Manager
 
