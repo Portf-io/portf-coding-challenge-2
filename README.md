@@ -14,7 +14,6 @@ A simple Task Management Application that allows users to create, update, delete
 
 3. There may be some bugs and you are also free to change any configuration if you want to.
 
-```typescript
 ```graphql
 /*
  GraphQL Schema Overview
