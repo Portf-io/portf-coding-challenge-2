@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { AiOutlineDelete } from "react-icons/ai";
+import { FaIndent } from "react-icons/fa";
 import { useMutation } from "@apollo/client";
 import {
   GET_ALL_TASKS,
@@ -19,7 +20,8 @@ export default function HomeTaskListItem({ task }) {
   const handleItemClick = (e) => {
     if (
       !e.target.closest(".delete-button") &&
-      !e.target.closest(".status-dropdown")
+      !e.target.closest(".status-dropdown") &&
+      !e.target.closest(".toggle-subtasks")
     ) {
       router.push(`/task/${task.id}`);
     }
@@ -58,13 +60,13 @@ export default function HomeTaskListItem({ task }) {
 
       <div className="flex space-x-2">
         <button
-          onClick={(e) => handleDelete(e)}
+          onClick={handleDelete}
           className="delete-button bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded"
         >
-          <AiOutlineDelete className="" />
+          <AiOutlineDelete />
         </button>
-        <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-2 rounded">
-          Dropdown
+        <button className="toggle-subtasks bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-2 rounded">
+          <FaIndent />
         </button>
       </div>
     </div>

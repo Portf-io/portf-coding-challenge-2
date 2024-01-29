@@ -17,4 +17,15 @@ model Task {
     description String?
     status      String @default("PENDING")
     createdAt   DateTime @default(now())
+    subtasks    SubTask[]
+}
+
+model SubTask {
+    id          Int      @id @default(autoincrement())
+    title       String
+    description String?
+    status      String @default("PENDING")
+    createdAt   DateTime @default(now())
+    taskId      Int
+    task        Task @relation(fields: [taskId], references: [id])
 }

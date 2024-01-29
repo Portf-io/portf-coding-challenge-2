@@ -6,41 +6,43 @@ import {
   intArg,
   stringArg,
 } from "nexus";
-import { Task } from "nexus-prisma";
+import { SubTask } from "nexus-prisma";
 import { Context } from "./context";
 
-// Task object
-export const TaskType = objectType({
-  name: Task.$name,
-  description: Task.$description,
+// SubTask object
+export const SubTaskType = objectType({
+  name: SubTask.$name,
+  description: SubTask.$description,
   definition(t) {
-    t.nonNull.field(Task.id);
-    t.nonNull.field(Task.title);
-    t.field(Task.description);
+    t.nonNull.field(SubTask.id);
+    t.nonNull.field(SubTask.title);
+    t.field(SubTask.description);
     t.nonNull.field("status", {
-      type: TaskStatusEnum,
+      type: SubTaskStatusEnum,
     });
-    t.nonNull.field(Task.createdAt);
+    t.nonNull.field(SubTask.createdAt);
+    t.nonNull.field(SubTask.taskId);
+    t.nonNull.field(SubTask.task);
   },
 });
 
 // Status enum
-export const TaskStatusEnum = enumType({
-  name: "TaskStatusEnum",
+export const SubTaskStatusEnum = enumType({
+  name: "SubTaskStatusEnum",
   members: ["COMPLETED", "IN_PROGRESS", "PENDING"],
 });
 
-// Get a single task
-export const GetTaskQuery = extendType({
+// Get a single subtask
+export const GetSubTaskQuery = extendType({
   type: "Query",
   definition(t) {
-    t.field("getTask", {
-      type: "Task",
+    t.field("getSubTask", {
+      type: "SubTask",
       args: {
         id: nonNull(intArg()),
       },
       resolve: (_parent, args, ctx: Context) => {
-        return ctx.prisma.task.findUnique({
+        return ctx.prisma.subTask.findUnique({
           where: { id: args.id },
         });
       },
@@ -48,39 +50,41 @@ export const GetTaskQuery = extendType({
   },
 });
 
-// Get all tasks
-export const GetAllTaskQuery = extendType({
+// Get all subtasks
+export const GetAllSubTaskQuery = extendType({
   type: "Query",
   definition(t) {
-    t.list.field("getAllTasks", {
-      type: "Task",
+    t.list.field("getAllSubTasks", {
+      type: "SubTask",
       resolve: (_parent, _args, ctx: Context) => {
-        return ctx.prisma.task.findMany();
+        return ctx.prisma.subTask.findMany();
       },
     });
   },
 });
 
-// Create a task
-export const CreateTaskMutation = extendType({
+// Create a subtask
+export const CreateSubTaskMutation = extendType({
   type: "Mutation",
   definition(t) {
-    t.nonNull.field("createTask", {
-      type: "Task",
+    t.nonNull.field("createSubTask", {
+      type: "SubTask",
       args: {
         title: nonNull(stringArg()),
         description: stringArg(),
-        status: nonNull(TaskStatusEnum),
+        status: nonNull(SubTaskStatusEnum),
+        taskId: nonNull(intArg()),
       },
       resolve: (_parent, args, ctx) => {
         if (!["PENDING", "IN_PROGRESS", "COMPLETED"].includes(args.status)) {
           throw new Error("Invalid status value");
         }
-        return ctx.prisma.task.create({
+        return ctx.prisma.subTask.create({
           data: {
             title: args.title,
             description: args.description,
             status: args.status,
+            taskId: args.taskId,
           },
         });
       },
@@ -88,35 +92,17 @@ export const CreateTaskMutation = extendType({
   },
 });
 
-// Get all subtasks for a Task
-export const GetAllSubTasksForTaskQuery = extendType({
-  type: "Query",
-  definition(t) {
-    t.list.field("getSubTasksFotTask", {
-      type: "SubTask",
-      args: {
-        taskId: nonNull(intArg()),
-      },
-      resolve: (_parent, args, ctx: Context) => {
-        return ctx.prisma.subTask.findMany({
-          where: { taskId: args.taskId },
-        });
-      },
-    });
-  },
-});
-
-// Delete a task
-export const DeleteTaskMutation = extendType({
+// Delete a subtask
+export const DeleteSubTaskMutation = extendType({
   type: "Mutation",
   definition(t) {
-    t.field("deleteTask", {
-      type: "Task",
+    t.field("deleteSubTask", {
+      type: "SubTask",
       args: {
         id: nonNull(intArg()),
       },
       resolve: (_parent, args, ctx) => {
-        return ctx.prisma.task.delete({
+        return ctx.prisma.subTask.delete({
           where: { id: args.id },
         });
       },
@@ -125,19 +111,19 @@ export const DeleteTaskMutation = extendType({
 });
 
 // Update a task
-export const UpdateTaskMutation = extendType({
+export const UpdateSubTaskMutation = extendType({
   type: "Mutation",
   definition(t) {
-    t.field("updateTask", {
-      type: "Task",
+    t.field("updateSubTask", {
+      type: "SubTask",
       args: {
         id: nonNull(intArg()),
         title: stringArg(),
         description: stringArg(),
-        status: TaskStatusEnum,
+        status: SubTaskStatusEnum,
       },
       resolve: (_parent, args, ctx) => {
-        return ctx.prisma.task.update({
+        return ctx.prisma.subTask.update({
           where: { id: args.id },
           data: {
             title: args.title,

@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const CREATE_TASK_MUTATION = gql(`
-  mutation CreateTask($title: String!, $description: String, $status: String!) {
+  mutation CreateTask($title: String!, $description: String, $status: TaskStatusEnum!) {
     createTask(title: $title, description: $description, status: $status) {
       id
       title
@@ -43,7 +43,7 @@ export const DELETE_TASK_MUTATION = gql(`
 `);
 
 export const UPDATE_TASK_STATUS = gql(`
-  mutation UpdateTaskStatus($id: Int!, $status: String!) {
+  mutation UpdateTaskStatus($id: Int!, $status: TaskStatusEnum!) {
     updateTask(id: $id, status: $status) {
       id
       status
