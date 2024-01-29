@@ -12,7 +12,7 @@
     "generate": "npm -s run generate:prisma && npm -s run generate:nexus",
     "generate:prisma": "prisma generate",
     "generate:nexus": "ts-node --compiler-options '{\"module\":\"CommonJS\"}' --transpile-only src/graphql-server/schema",
-    "codegen": "graphql-codegen --config codegen.ts"
+    "codegen": "graphql-codegen --debug --config codegen.ts"
   },
   "dependencies": {
     "@apollo/client": "^3.8.10",

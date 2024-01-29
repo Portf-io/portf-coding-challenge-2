@@ -3,32 +3,39 @@ import styles from "../../styles/Home.module.css";
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { GET_TASK } from "../api/crud_task";
+import TaskDetailHeader from "../../components/Task/TaskDetailHeader";
+import { useState, useEffect } from "react";
+import { Task } from "../../models/TaskModel";
+import TaskDetailBody from "../../components/Task/TaskDetailBody";
 
 export default function Task() {
   const { query } = useRouter();
   const taskId =
     typeof query["taskId"] === "string" ? query["taskId"] : undefined;
-
   const { data } = useQuery(GET_TASK, {
     variables: taskId ? { id: Number(taskId) } : undefined,
   });
+  const [task, setTask] = useState<Task>();
 
-  if (!data) {
+  useEffect(() => {
+    if (data && data.getTask) {
+      setTask(data.getTask);
+    }
+  }, [data]);
+
+  if (!task) {
     return null;
   }
 
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Task {data.getTask.id}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>Task {data.getTask.id}</h1>
-        <h2 className={styles.description}>{data.getTask.title}</h2>
-        <p className={styles.description}>{data.getTask.description}</p>
-      </main>
+    <div className="flex flex-col space-y-10">
+      <TaskDetailHeader
+        taskTitle={task.title}
+        createdAtDate={task.createdAt}
+        taskStatus={task.status}
+        taskDescription={task.description}
+      />
+      <TaskDetailBody task={task} />
     </div>
   );
 }

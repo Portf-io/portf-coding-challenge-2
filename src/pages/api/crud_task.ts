@@ -29,14 +29,16 @@ export const GET_TASK = gql(`
     getTask(id: $id) {
       id
       title
+      status
       description
+      createdAt
     }
   }
 `);
 
 export const GET_SUBTASKS_FOR_TASK = gql(`
   query GetSubTasksForTask($id: Int!) {
-    getSubTasksFotTask(taskId: $id) {
+    getSubTasksForTask(taskId: $id) {
       id
       title
       description

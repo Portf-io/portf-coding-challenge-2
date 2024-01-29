@@ -92,7 +92,7 @@ export const CreateTaskMutation = extendType({
 export const GetAllSubTasksForTaskQuery = extendType({
   type: "Query",
   definition(t) {
-    t.list.field("getSubTasksFotTask", {
+    t.list.field("getSubTasksForTask", {
       type: "SubTask",
       args: {
         taskId: nonNull(intArg()),

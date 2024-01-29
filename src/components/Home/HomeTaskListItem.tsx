@@ -34,8 +34,8 @@ export default function HomeTaskListItem({ task }: HomeListItemProps) {
   const [updateTaskStatus] = useMutation(UPDATE_TASK_STATUS);
 
   useEffect(() => {
-    if (allSubTasks?.getSubTasksFotTask) {
-      setSubTasks(allSubTasks.getSubTasksFotTask);
+    if (allSubTasks?.getSubTasksForTask) {
+      setSubTasks(allSubTasks.getSubTasksForTask);
     }
   }, [allSubTasks]);
 
@@ -84,12 +84,14 @@ export default function HomeTaskListItem({ task }: HomeListItemProps) {
           task
         )} shadow p-2 rounded-lg cursor-pointer`}
       >
-        <div className="status-dropdown flex space-x-3 items-center">
-          <TaskStatusDropdown
-            taskId={task.id}
-            currentStatus={task.status}
-            onUpdateStatus={handleUpdateStatus}
-          />
+        <div className="flex space-x-3 items-center">
+          <div className="status-dropdown">
+            <TaskStatusDropdown
+              taskId={task.id}
+              currentStatus={task.status}
+              onUpdateStatus={handleUpdateStatus}
+            />
+          </div>
           <div className="text-black text-lg font-semibold">{task.title}</div>
         </div>
 
@@ -109,7 +111,7 @@ export default function HomeTaskListItem({ task }: HomeListItemProps) {
         </div>
       </div>
       {showSubTasks && (
-        <div className="flex flex-col space-y-3 ml-24">
+        <div className="flex flex-col space-y-3 ml-24 p-3 bg-slate-200 rounded-lg">
           <SubTaskList
             subTasks={subTasks}
             allSubTasksRefetch={allSubTasksRefetch}
