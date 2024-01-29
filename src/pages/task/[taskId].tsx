@@ -1,18 +1,8 @@
 import Head from "next/head";
 import styles from "../../styles/Home.module.css";
 import { useQuery } from "@apollo/client";
-import { graphql } from "../../gql";
 import { useRouter } from "next/router";
-
-const GET_TASK = graphql(`
-  query GetTask($id: Int!) {
-    getTask(id: $id) {
-      id
-      title
-      description
-    }
-  }
-`);
+import { GET_TASK } from "../api/crud_task";
 
 export default function Task() {
   const { query } = useRouter();

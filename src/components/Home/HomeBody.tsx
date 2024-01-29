@@ -5,11 +5,14 @@ import HomeSearch from "./HomeSearch";
 import HomeTaskList from "./HomeTaskList";
 import { Task } from "../../models/Task";
 
+import CreateTaskModal from "../Task/CreateTaskModal";
+
 export default function HomeBody({ allTasks }: HomeBodyProps) {
   const [filteredTasks, setFilteredTasks] = useState<Task[]>(allTasks);
   const [orderByDate, setOrderByDate] = useState<"ascending" | "descending">(
-    "ascending"
+    "descending"
   );
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     setFilteredTasks(allTasks);
@@ -35,12 +38,24 @@ export default function HomeBody({ allTasks }: HomeBodyProps) {
     setOrderByDate(orderByDate === "ascending" ? "descending" : "ascending");
   };
 
-  const handleFilterByStatus = (status) => {};
+  const handleFilterByStatus = (status: string) => {
+    if (status === "") {
+      setFilteredTasks(allTasks);
+    } else {
+      const filteredByStatus = allTasks.filter(
+        (task) => task.status === status
+      );
+      setFilteredTasks(filteredByStatus);
+    }
+  };
 
-  const handleCreateTask = () => {};
+  const handleCreateTask = () => {
+    setIsModalOpen(true);
+  };
 
   return (
     <div className="relative flex flex-col space-y-6 ">
+      {isModalOpen && <CreateTaskModal onClose={() => setIsModalOpen(false)} />}
       <HomeSearch
         onSearchTasks={handleSearchTasks}
         onOrderByDate={handleOrderByDate}

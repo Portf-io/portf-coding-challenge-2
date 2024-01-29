@@ -107,6 +107,9 @@ export const CreateTaskMutation = extendType({
         status: nonNull(stringArg()),
       },
       resolve: (_parent, args, ctx) => {
+        if (!["PENDING", "IN_PROGRESS", "COMPLETED"].includes(args.status)) {
+          throw new Error("Invalid status value");
+        }
         return ctx.prisma.task.create({
           data: {
             title: args.title,

@@ -8,6 +8,7 @@ export interface HomeHeaderProps {
   numTasks: number;
   completedTasks: number;
   uncompletedTasks: number;
+  pendingTasks: number;
 }
 
 export interface HomeTaskListProps {

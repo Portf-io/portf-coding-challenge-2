@@ -3,12 +3,14 @@ import HomeHeaderItem from "./HomeHeaderItem";
 import { MdNumbers } from "react-icons/md";
 import { FaCheckCircle } from "react-icons/fa";
 import { TbProgress } from "react-icons/tb";
+import { MdOutlinePending } from "react-icons/md";
 import { HomeHeaderProps } from "../../models/HomeProps";
 
 export default function HomeHeader({
   numTasks,
   completedTasks,
   uncompletedTasks,
+  pendingTasks,
 }: HomeHeaderProps) {
   return (
     <header className="flex justify-around">
@@ -27,7 +29,11 @@ export default function HomeHeader({
         name="Tasks In Progress"
         value={uncompletedTasks}
       />
-      <HomeHeaderItem icon={TbProgress} name="Number of Sub-tasks" value="" />
+      <HomeHeaderItem
+        icon={MdOutlinePending}
+        name="Tasks Pending"
+        value={pendingTasks}
+      />
     </header>
   );
 }

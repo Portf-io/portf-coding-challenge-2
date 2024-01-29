@@ -1,23 +1,11 @@
 import { useState, useEffect, useMemo } from "react";
-import { useQuery } from "@apollo/client";
+import { useQuery, gql } from "@apollo/client";
 
 import HomeHeader from "../components/Home/HomeHeader";
 import HomeBody from "../components/Home/HomeBody";
 
-import { graphql } from "../gql";
 import { Task } from "../models/Task";
-
-const GET_ALL_TASKS = graphql(`
-  query GetAllTask {
-    getAllTasks {
-      id
-      title
-      description
-      status
-      createdAt
-    }
-  }
-`);
+import { GET_ALL_TASKS } from "./api/crud_task";
 
 export default function Home() {
   const { data: allTasks } = useQuery(GET_ALL_TASKS);
@@ -28,9 +16,12 @@ export default function Home() {
     const completedTasks = tasks.filter(
       (task) => task.status === "COMPLETED"
     ).length;
-    const uncompletedTasks = totalTasks - completedTasks;
+    const uncompletedTasks = tasks.filter(
+      (task) => task.status === "IN_PROGRESS"
+    ).length;
+    const pendingTasks = totalTasks - completedTasks - uncompletedTasks;
 
-    return { totalTasks, completedTasks, uncompletedTasks };
+    return { totalTasks, completedTasks, uncompletedTasks, pendingTasks };
   }, [tasks]);
 
   useEffect(() => {
@@ -45,6 +36,7 @@ export default function Home() {
         numTasks={taskInfo.totalTasks}
         completedTasks={taskInfo.completedTasks}
         uncompletedTasks={taskInfo.uncompletedTasks}
+        pendingTasks={taskInfo.pendingTasks}
       />
       <div className="text-3xl">Tasks</div>
       <HomeBody allTasks={tasks} />
