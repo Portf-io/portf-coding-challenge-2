@@ -8,7 +8,7 @@ export default function ChangeStatusDropdown({
   allSubTasksRefetch,
 }: ChangeStatusDropdown) {
   return (
-    <div className="status-dropdown flex space-x-3 items-center">
+    <div className="flex space-x-3 items-center">
       <EnumStatusDropdown
         itemId={item.id}
         item_type={item_type}
