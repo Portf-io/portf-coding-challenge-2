@@ -6,25 +6,32 @@ const taskData: Prisma.TaskCreateInput[] = [
   {
     title: "Create",
     description: "Create a new task",
-    status: "PENDING",
+    status: "COMPLETED",
     createdAt: new Date(),
   },
   {
     title: "List",
     description: "Display tasks in a list",
-    status: "PENDING",
+    status: "COMPLETED",
     createdAt: new Date(),
   },
   {
     title: "Delete",
     description: "Delete a task",
-    status: "PENDING",
+    status: "COMPLETED",
     createdAt: new Date(),
   },
   {
     title: "Support sub-tasks",
     description: "Add support for array of sub-tasks on a task",
-    status: "PENDING",
+    status: "COMPLETED",
+    createdAt: new Date(),
+  },
+  {
+    title: "Review the Task Manager App",
+    description:
+      "The app was created by Ton Hoang Nguyen (Bill) for PortF. The app allows adding, removing, and updating statuses of tasks and subtasks.",
+    status: "IN_PROGRESS",
     createdAt: new Date(),
   },
 ];
