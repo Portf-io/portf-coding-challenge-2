@@ -1,10 +1,10 @@
 import Head from "next/head";
-import styles from "../../styles/Home.module.css";
+import styles from "../../../styles/Task.module.css";
 import { useQuery } from "@apollo/client";
-import { graphql } from "../../gql";
+import { graphql } from "../../../gql";
 import { useRouter } from "next/router";
 
-const GET_TASK = graphql(`
+export const GET_TASK = graphql(`
   query GetTask($id: Int!) {
     getTask(id: $id) {
       id
@@ -20,7 +20,7 @@ export default function Task() {
     typeof query["taskId"] === "string" ? query["taskId"] : undefined;
 
   const { data } = useQuery(GET_TASK, {
-    variables: taskId ? { id: Number(taskId) } : undefined,
+    variables: taskId ? { id: Number(taskId) } : undefined
   });
 
   if (!data) {

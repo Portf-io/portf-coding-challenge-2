@@ -1,0 +1,84 @@
+/* Base button styles */
+.button {
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === SIZES === */
+
+/* Large button styles */
+.button__large {
+  padding: 12px 24px;
+  font-size: 1.25rem;
+}
+
+/* Medium button styles */
+.button__medium {
+  padding: 10px 20px;
+  font-size: 1.125rem;
+}
+
+/* Small button styles */
+.button__small {
+  padding: 6px 12px;
+  font-size: 0.875rem;
+}
+
+/* === COLORS === */
+
+/* Primary button styles */
+.button__primary {
+  --surface: #0070f3;
+  --on-surface: #ffffff;
+}
+
+.button__primary:is(:hover, :focus) {
+  --surface: #005bc2;
+}
+
+/* Secondary button styles */
+.button__secondary {
+  --surface: #f3f3f3;
+  --on-surface: #333333;
+}
+
+.button__secondary:is(:hover, :focus) {
+  --surface: #f3f3f3bc;
+}
+
+/* Critical button styles */
+.button__critical {
+  --surface: #ff0000;
+  --on-surface: #ffffff;
+}
+
+.button__critical:is(:hover, :focus) {
+  --surface: #cc0000;
+}
+
+/* === VARIANTS === */
+
+/* Outlined button styles */
+.button__outlined:not(:disabled) {
+  background-color: transparent;
+  color: var(--on-surface);
+  border: 1px solid var(--on-surface);
+  transition: background-color 0.3s ease;
+}
+
+.button__outlined:not(:disabled):is(:hover, :focus) {
+  background-color: var(--surface);
+}
+
+/* Filled button styles */
+.button__filled:not(:disabled) {
+  background-color: var(--surface);
+  color: var(--on-surface);
+  border: 0;
+  transition: background-color 0.3s ease;
+}

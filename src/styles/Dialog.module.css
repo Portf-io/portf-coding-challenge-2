@@ -1,0 +1,22 @@
+.dialog {
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid var(--divider);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.dialog_actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.dialog_actions button {
+  width: 100%;
+}
+
+.dialog::backdrop {
+  background-color: #0004;
+  backdrop-filter: blur(4px);
+}
