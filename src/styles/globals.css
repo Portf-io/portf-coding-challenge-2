@@ -1,24 +1,30 @@
+:root {
+  --divider: #e9e9e9;
+}
+
 html,
-body {
+body,
+button {
   padding: 0;
   margin: 0;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    Segoe UI,
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    Fira Sans,
-    Droid Sans,
-    Helvetica Neue,
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+h1 {
+  margin: 1rem;
+}
+
+.alert {
+  background-color: #ff000020;
+  border-radius: 4px;
+  padding: 1rem;
+  color: #ff0000;
 }
 
 * {
