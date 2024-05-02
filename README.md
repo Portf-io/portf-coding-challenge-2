@@ -36,7 +36,6 @@ Generate your API and front-end types (remember to re-run these if you make any 
 
 ```
 npm run generate
-npm run codegen
 ```
 
 ### Run
@@ -45,6 +44,14 @@ Run the NextJS dev server
 
 ```
 npm run dev
+```
+
+### Generate types
+
+Generate your API and front-end types (remember to re-run these if you make any changes to your schema)
+
+```
+npm run codegen
 ```
 
 Which can be viewed here: http://localhost:3000
