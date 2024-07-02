@@ -12,6 +12,18 @@ Already scaffolded for you is a NextJS app with the following integrations:
 
 ---
 
+### Clone this repo
+
+Start off by cloning this repo using the "Use this template" button at the top right and create a new **private** repo:
+
+![alt text](image.png)
+
+In the settings of your new private repo, invite @tomwhale as a collaborator.
+
+![alt text](image-1.png)
+
+---
+
 ### Prerequisites
 
 - Node v20 is recommended.
@@ -78,7 +90,7 @@ npm run codegen
 
 ### Instructions
 
-Some guide tasks are provided in `prisma/seed.ts`
+Initial tasks are provided in `prisma/seed.ts`
 
 Complete as many as you want (or add more) in as much detail as you like.
 

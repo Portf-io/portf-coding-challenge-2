@@ -16,14 +16,15 @@ const taskData: Prisma.TaskCreateInput[] = [
     createdAt: new Date(),
   },
   {
-    title: "Delete",
-    description: "Delete a task",
+    title: "Support sub-tasks",
+    description: "Add support for array of sub-tasks on a task",
     status: "TO_DO",
     createdAt: new Date(),
   },
   {
-    title: "Support sub-tasks",
-    description: "Add support for array of sub-tasks on a task",
+    title: "Optimise performance",
+    description:
+      "For the sub-tasks request; create a function that, for each specific input, only makes 1 request to the database and always returns the same output.",
     status: "TO_DO",
     createdAt: new Date(),
   },
