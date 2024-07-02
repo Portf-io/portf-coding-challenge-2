@@ -6,6 +6,7 @@
     "build": "npm run generate && next build",
     "bundle": "node scripts/bundle.js",
     "check": "tsc --pretty --noEmit",
+    "predev": "npm run generate",
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",

@@ -10,9 +10,13 @@ Already scaffolded for you is a NextJS app with the following integrations:
 - Apollo Client
 - GraphQL Code Generator (for apollo client requests)
 
+---
+
 ### Prerequisites
 
 - Node v20 is recommended.
+
+---
 
 ### NPM
 
@@ -22,6 +26,8 @@ Kick off with an npm install
 npm i
 ```
 
+---
+
 ### Prisma
 
 Migrate and seed your db
@@ -30,13 +36,19 @@ Migrate and seed your db
 npx prisma migrate dev --name init
 ```
 
-### Generate types
+---
 
-Generate your API and front-end types (remember to re-run these if you make any changes to your schema)
+### Generate API types
+
+(Note: `npm run dev` runs this as a pre-step)
+
+Generate your API types (remember to re-run these if you make any changes to your schema)
 
 ```
 npm run generate
 ```
+
+---
 
 ### Run
 
@@ -46,17 +58,23 @@ Run the NextJS dev server
 npm run dev
 ```
 
-### Generate types
+App can be viewed here: http://localhost:3000
 
-Generate your API and front-end types (remember to re-run these if you make any changes to your schema)
+The GraphQL api can be viewed here: http://localhost:3000/api/graphql
+
+---
+
+### Generate FE types
+
+(Note: Run this in a separate terminal tab/window, as this requires `npm run dev` to be running)
+
+Generate your front-end types (remember to re-run these if you make any changes to your schema)
 
 ```
 npm run codegen
 ```
 
-Which can be viewed here: http://localhost:3000
-
-The GraphQL api can be viewed here: http://localhost:3000/api/graphql
+---
 
 ### Instructions
 
