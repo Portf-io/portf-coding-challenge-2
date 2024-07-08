@@ -22,9 +22,9 @@ const taskData: Prisma.TaskCreateInput[] = [
     createdAt: new Date(),
   },
   {
-    title: "Optimise performance",
+    title: "Optimise BE performance across multiple clients",
     description:
-      "For the sub-tasks request; create a function that, for each specific input, only makes 1 request to the database and always returns the same output.",
+      "For the sub-tasks request; Create a generic backend function that accepts another function as an argument, executes it once to fetch data from the database, and caches the result for subsequent calls. This caching mechanism ensures that for any given function passed as an argument, the same data is always returned while only making one database request.",
     status: "TO_DO",
     createdAt: new Date(),
   },
