@@ -8,7 +8,9 @@ Already scaffolded for you is a NextJS app with the following integrations:
 - Nexus (GraphQL schema generation)
 - Apollo Server
 - Apollo Client
-- GraphQL Code Generator (for apollo client requests)
+- GraphQL Code Generator (for apollo client requests
+
+
 
 ---
 
@@ -92,6 +94,6 @@ npm run codegen
 
 Initial tasks are provided in `prisma/seed.ts`
 
-Complete as many as you want (or add more) in as much detail as you like.
-
 There may be some bugs and you are also free to change any configuration if you want to.
+
+Feel free to use libraries that you are mot comfortable with.
