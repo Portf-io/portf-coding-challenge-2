@@ -96,4 +96,4 @@ Initial tasks are provided in `prisma/seed.ts`
 
 There may be some bugs and you are also free to change any configuration if you want to.
 
-Feel free to use libraries that you are mot comfortable with.
+Feel free to use libraries that you are most comfortable with.
