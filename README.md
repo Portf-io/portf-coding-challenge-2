@@ -20,7 +20,7 @@ Start off by cloning this repo using the "Use this template" button at the top r
 
 ![alt text](image.png)
 
-In the settings of your new private repo, invite `tomwhale` as a collaborator.
+In the settings of your new private repo, invite `tomwhale` & `stu-dev` as a collaborator.
 
 ![alt text](image-1.png)
 
