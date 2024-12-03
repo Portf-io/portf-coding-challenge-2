@@ -1,3 +1,5 @@
+### Do not use AI / CoPilot 
+
 ## Getting Started
 
 Welcome to the Task Manager coding challenge, in this challenge you will be tasked with building a simple Task Management Application that allows users to create, update delete, and view tasks.
